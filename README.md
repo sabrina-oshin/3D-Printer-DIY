@@ -39,7 +39,7 @@ The following assumptions have been made based on different sources:
 ### -Drive Current Adjustment
 According to the [manual](http://sl3d.ch/wp-content/uploads/2019/11/MKS-Gen-L.pdf), the MKS motherboards consist of 5 motor drivers to drive the stepper motors. The motor drivers have different adjustment settings for driving steppers.
 
-![3D-Printer-DIY](./images/mks_motordrive.jpg)
+![3D-Printer-DIY](./images/motordrive.jpg)
 ---
 -**4988 (Red) Motor Driver:**
 
