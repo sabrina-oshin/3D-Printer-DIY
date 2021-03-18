@@ -18,8 +18,9 @@ This repository discusses the 1st order approximation for the basic hardware beh
      - [Hotend Heater](#hotend-heater) 
      - [Silicon Heater for Heatbed](#silicon-heater-for-heat-bed) 
      - [DC Fans](#dc-fans) 
+     - [MOSFET](#mosfet) 
      - [Total Load](#total-load) 
-- [Decision](#decision)
+- [Discussion](#discussion)
 
 ---
 ## Open Questions
@@ -164,13 +165,13 @@ The final load calculation is mentioned below:
 ---
 
 ### Motor Drivers
-Total power dissipation across the motor drivers is, **Ptm** = Pt1 + Pt2 + Pt3 + Pt4 + Pt5 = ( 6.4 + 12.8 + 12.5 + 4.5 + 50 ) Watts = **86.2 Watts**
+Total power dissipation across the motor drivers is, **Ptd** = Pt1 + Pt2 + Pt3 + Pt4 + Pt5 = (6.4 + 12.8 + 12.5 + 4.5 + 50) Watts = **86.2 Watts**
 
 ---
 ### Optocouplers
 According to this fruitful [discussion](https://3dprinting.stackexchange.com/questions/8297/hooking-up-an-optocoupler-in-a-24v-machine-is-a-2-kohm-resistor-sufficient) a **24 V- 60 mA** optocoupler can be chosen for this application. 
 
-The power disssipation across the 6 optocouplers is, **Pto** = 6 * V * I = ( 6 * 24 * 0.06 ) Watts = **8.64 Watts**
+The power disssipation across the 6 optocouplers is, **Pto** = 6 * V * I = (6 * 24 * 0.06) Watts = **8.64 Watts**
 
 ---
 
@@ -188,6 +189,31 @@ The power disssipation across the **24 V- 400 W** silicon heater for heatbed is,
 
 ### DC Fans
 
-The power disssipation across the 4 DC fans of **24 V, 0.15 A, 6020** model is, **Ptd** = 4 * V * I = = ( 4 * 24 * 0.15 ) Watts = **14.4 Watts**
+The power disssipation across the 4 DC fans of **24 V, 0.15 A, 6020** model is, **Ptf** = 4 * V * I = (4 * 24 * 0.15) Watts = **14.4 Watts**
+
+---
+
+### MOSFET
+
+The power disssipation across the **40 V, 120 A, 0.55 mohms** MOSFET is, **Ptm** = I^2 * Rds = (25^2 * 0.00055) Watts = **0.344 Watts**
+
+
+---
+
+### Total Load
+
+The total power dissipation across the schematic is = Ptd + Pto + Pth + Pts + Ptf + Ptm = (86.2 + 8.64 + 40 + 400 + 14.4 + 0.344) Watts = 549.584 Watts ~ **550 Watts**
+
+---
+
+## Discussion
+
+According to this [blog](https://3dprinterchat.com/3d-printer-power-supply/), for a printer with 30 cm × 30 cm heated bed: 600 W power supply should be chosen. This approximation also verifies the validity of the load calculation done above. If **80 plus gold** standard is chosen:
+- When the printer will be idle (20 % of load, 110 W): 87 % of power (522 W) will be available for sourcing, which is sufficient.
+- When the printer will be active (50 % of load, 275 W): 90 % of power (540 W) will be available for sourcing, which is sufficient.
+- When the printer will be active (100 % of load, 550 W): 87 % of power (522 W) will be available for sourcing, which is sufficient. Please note that, the maximum current rating is chosen for the motor driver load calculation. Thus the **Ptd** will be much lower than the calculated one.
+
+So, to meet the 550 Watts of load requirement, choosing a **600 Watts ATX power supply with 80 plus gold** would be wise.
+
 
 ---
