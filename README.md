@@ -119,6 +119,10 @@ Based on the default current settings of the motor drivers, following stepper mo
 The motor selection also depends on the torque values. According to this [blog](https://duet3d.dozuki.com/Wiki/Choosing_an_extruder_drive), the stepper motor force depends on the printing filament diameter. 
 - For **1.75 mm** PLA filament, the imposed force should be within 10 N ~ 25 N at rated motor current and aim to run at 50 % ~ 85 %
 -  For **3 mm** filament, aim for 3 times the motor force, so between 30 N and 75 N at rated current.
-- If using a **1.8 deg / step** motor, the extruder force in Newtons (N) is : **_Extruder_force_at_rated_current = Motor_holding_torque Extruder_steps_per_mm * 0.0014_**
+- If using a **1.8 deg / step** motor, the extruder force in Newtons (N) is : 
 
-- For a **0.9 deg / step** motor: **_Extruder_force_at_rated_current = Motor_holding_torque * Extruder_steps_per_mm * 0.0007_**
+**_Extruder_force_at_rated_current = Motor_holding_torque Extruder_steps_per_mm * 0.0014_**
+
+- For a **0.9 deg / step** motor: 
+
+**_Extruder_force_at_rated_current = Motor_holding_torque * Extruder_steps_per_mm * 0.0007_**
