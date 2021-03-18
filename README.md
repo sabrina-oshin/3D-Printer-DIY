@@ -36,7 +36,7 @@ This repository discusses the 1st order approximation for the basic hardware beh
 ---
 ## Assumptions of the Design
 The following assumptions have been made based on different sources:
-### -Drive Current Adjustment
+### Drive Current Adjustment
 According to the [manual](http://sl3d.ch/wp-content/uploads/2019/11/MKS-Gen-L.pdf), the MKS motherboards consist of 5 motor drivers to drive the stepper motors. The motor drivers have different adjustment settings for driving steppers.
 
 ![3D-Printer-DIY](./images/motordrive.jpg)
